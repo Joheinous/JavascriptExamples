@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fahrenheit to Celcius</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+    crossorigin="anonymous"
+  />
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container-fluid" style="margin: 1em 1em 1em 1em">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link active">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="c_to_f.html" class="nav-link">Celcius to Fahrenheit</a>
+            </li>
+            <li class="nav-item">
+                <a href="f_to_c.html" class="nav-link">Fahrenheit to Celcius</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <div class="container">
+        <p>Fahrenheit: <input type="number" id="fahrenheitField"></p>
+        <button type="button" onclick="fToC()">Convert</button>
+        
+        <h1 id="output"></h1>
+        </div>
+        
+            <script src="scripts.js"></script>
+</body>
+</html>
