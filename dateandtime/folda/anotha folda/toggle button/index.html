@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <main class="container">
+<button onclick="toggleElement()">Expand</button>  
+  <section id="detailsSection" style="display:none;">
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, dolorem eos rerum, est placeat delectus impedit eligendi molestiae voluptatum repudiandae aliquid minima explicabo, quo suscipit distinctio rem itaque sunt commodi.</p>
+    </section>
+</main>
+    <script>
+
+     function toggleElement(){
+        let status = document.getElementById("detailsSection")
+            if (status.style.display == "none") {
+                detailsSection.style.display = "block";
+            }
+            else {
+                detailsSection.style.display = "none";
+            }
+    }
+    </script>
+</body>
+</html>

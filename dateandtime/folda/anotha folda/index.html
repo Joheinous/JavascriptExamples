@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <main class="container">
+    <fieldset>
+        <legend>Rental Car Options:<legend>
+        <input type="checkbox" id="tollTag" name="tollTag"
+        value="tolltag" checked> Electronic Toll Tag ($3.95/day
+        plus tolls)<br>
+        <input type="checkbox" id="gps" name="gps"
+        value="gls"> GPS ($4.95/day)<br>
+        <input type="checkbox" id="roadside" name="roadside"
+        value="roadside"> Roadside Assistance ($2.95/day)<br>
+        <button onclick="calculateExtra();">Get Rate</button>
+       </fieldset>
+       <p id="result"></p>
+
+       <script>
+        function calculateExtra() {
+        let extraPerDay = 0;
+    let tollTag = document.getElementById("tollTag").checked;
+        if (tollTag == true) {
+        extraPerDay += 3.95;
+}
+    let gps = document.getElementById("gps").checked;
+        if (gps == true) {
+        extraPerDay += 4.95;
+}   
+    let roadside = document.getElementById("roadside").checked;
+        if (roadside == true) {
+        extraPerDay += 2.95;
+} 
+document.getElementById("result").innerText = `Your total extra per day is: $${extraPerDay.toFixed(2)}`;
+        }
+       </script>
+    </main>
+
+</body>
+</html>
