@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+            background-color:darkcyan;
+            margin: 2em 2em 2em 2em;
+        }
+
+        p {
+            color:antiquewhite;
+        }
+    </style>
+  </head>
+  <body>
+    <input type="date" name="" id="myDate" />
+    <button id="dateBtn" onclick="handleClick();">Display Date</button>
+    <p id="messagepara"></p>
+
+    <script>
+      function handleClick() {
+        const theDate = document.getElementById("myDate");
+        const message = document.getElementById("messagepara");
+        const dateBtn = document.getElementById("dateBtn");
+        
+        let date = new Date(theDate.value);
+        
+        message.innerText = `The date is: ${date.toDateString()}`;
+      }
+    </script>
+  </body>
+</html>
