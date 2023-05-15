@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css" />
+    <style>
+        body {
+            background: sandybrown;
+            margin: 2em 2em 2em 2em;
+        }
+    </style>
+</head>
+<body>
+    <select id="category" name="category" onchange="displaySelectedMenu();">
+        <option value="">Select a Category</option>
+        <option value="0">Adventures</option>
+        <option value="1">Arts & Crafts</option>
+        <option value="2">Museums</option>
+        <option value="3">Wine Tastings</option>
+        <option value="4">Other</option>
+      </select>
+      <select name="secondMenu" id="secondMenu" onchange="displayActivity();">
+        <option value="">Select an Activity</option>
+      </select>
+      <div id="output">
+        <h2 id="outputTitle"></h2>
+        <p id="activity"></p>
+        <p id="price"></p>
+      </div>
+</body>
+<script src="activities.js"></script>
+</html>
