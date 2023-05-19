@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Images</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main>
+      <label for="imageList">Images</label>
+      <select name="images" id="imagesList"></select>
+      <button onclick="displayImage();">Display Image</button>
+      <button onclick="clearImages();">Clear</button>
+      <div id="dynamic"></div>
+    </main>
+  </body>
+
+  <script>
+    let imageFiles = [
+      { name: " ", description: "Select Image..." },
+      { name: "images/dog.jpg", description: "A Cute Dog" },
+      { name: "images/cat.jpg", description: "A Cute Cat" },
+      { name: "images/bird.jpg", description: "A Cute Bird" },
+      { name: "images/chinchilla.jpg", description: "A Cute Chinchilla" },
+      { name: "images/bunny.jpg", description: "A Cute Bunny" },
+    ];
+    window.onload = function () {
+      for (let i = 0; i < imageFiles.length; i++) {
+        let selector = document.querySelector("select");
+        let options = document.createElement("option");
+
+        options.value = imageFiles[i].name;
+        options.innerText = imageFiles[i].description;
+
+        selector.appendChild(options);
+      }
+    };
+
+    function clearImages() {
+      let images = document.querySelector("#dynamic");
+      images.innerHTML = "";
+    }
+    function displayImage() {
+      let images = document.querySelector("#dynamic");
+      let selected = document.querySelector("select");
+      let theImage = document.createElement("img");
+
+      theImage.src = selected.value;
+      images.appendChild(theImage);
+    }
+  </script>
+</html>

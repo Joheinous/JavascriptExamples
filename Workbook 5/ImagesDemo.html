@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images Demo</title>
+    <style>
+        .roundedImg {
+            border-radius: 25px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img src="https://placehold.co/200x200" alt="placeholder">
+    <p>This is a placeholder image.</p>
+    <img src="https://placehold.co/300x300" alt="placeholder">
+    <p>This is a placeholder image.</p>
+    <img src="https://placehold.co/400x400" alt="placeholder">
+    <p>This is a placeholder image.</p>
+</div>
+</body>
+<script>
+
+    const para = document.querySelectorAll("p");
+    Array.from(para).forEach((element) => { element.style.border = "1px solid black";});
+    
+    const imgs = document.querySelectorAll("img");
+    console.log(imgs);
+    Array.from(imgs).forEach((element) => { element.className = "roundedImg";});
+    
+</script>
+</html>

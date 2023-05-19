@@ -37,6 +37,8 @@ let academyMembers = [
  let startsWith  = academyMembers.filter((array)=>array.name.startsWith("Bob") == true).map(a => a.name)
    
    startsWith.forEach(a=>console.log(a));
+
+   console.log(Date.now());
    
 //    console.log());
 
