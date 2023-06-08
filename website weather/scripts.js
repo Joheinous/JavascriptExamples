@@ -84,3 +84,6 @@ function fetchCities2(value) {
     .then((response) => response.json())
     .then((jsoned) => fetchWeather(jsoned, value));
 }
+
+
+.onchange(fetchWeather(value))
