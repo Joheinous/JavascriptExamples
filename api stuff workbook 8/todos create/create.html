@@ -3,26 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create User</title>
+    <title>Create Todo</title>
   </head>
   <body>
+    <a href="index.html"><p>Home</p></a>
+    <a href="create.html"><p>Create</p></a>
+    <a href="edit.html"><p>Edit</p></a>
     <main>
-        <h1>Create User</h1>
+        <h1>Create Todo</h1>
         <form onsubmit="handleSubmit(event);">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" />
+          <label for="userId">userId</label>
+          <input type="text" id="userId" Name="userId" />
   
-          <label for="username">Username</label>
-          <input type="text" id="username" name="username" />
+          <label for="title">Task</label>
+          <input type="text" id="title" name="title" />
   
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" />
-  
-          <label for="phone">Phone</label>
-          <input type="text" id="phone" name="phone" />
-  
-          <!-- <label for="company-name">Company Name</label>
-          <input type="text" id="companyname" name="companyname" /> -->
+          <label for="completed">Completed yet?</label>
+          <input type="text" id="completed" name="completed" />
           <button type="submit">Create</button>
         </form>
       </main>
@@ -33,19 +30,19 @@
         
         let form = event.target;
         let formData = new FormData(form);
-        let user = Object.fromEntries(formData.entries());
+        let todo = Object.fromEntries(formData.entries());
 
-        fetch("http://localhost:3000/users", {
+        fetch("http://localhost:3000/todos", {
           method: "POST",
           headers: { "Content-type": "application/json" },
-          body: JSON.stringify(user),
+          body: JSON.stringify(todo),
         })
         .then(function (response) {
             console.log(response.status, response.statusText);
             return response.json();
           })
-          .then(function (user) {
-            console.log(user);
+          .then(function (todo) {
+            console.log(todo);
             window.location.replace("index.html");
           });
 

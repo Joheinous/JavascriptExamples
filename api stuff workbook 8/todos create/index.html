@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos</title>
+</head>
+<body>
+    <a href="index.html"><p>Home</p></a>
+    <a href="create.html"><p>Create</p></a>
+    <a href="edit.html"><p>Edit</p></a>
+    <h1>Todos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Task</th>
+                <th>Completed?</th>
+            </tr>
+        </thead>
+        <tbody id="users-tbody">
+            
+        </tbody>
+    </table>
+</body>
+<script>
+let tbody = document.querySelector("#users-tbody");
+
+function buildTodoTableRow(todo) {
+        const row = tbody.insertRow(-1);
+
+        row.insertCell(0).textContent = todo.id;
+        row.insertCell(1).textContent = todo.title;
+        row.insertCell(2).textContent = todo.completed;
+        tbody.appendChild(row);
+      }
+
+function fetchUsers() {
+    fetch("http://localhost:3000/todos")
+    .then((response) => response.json())
+    .then((todos) => todos.forEach(buildTodoTableRow));
+}
+fetchUsers();
+</script>
+</html>

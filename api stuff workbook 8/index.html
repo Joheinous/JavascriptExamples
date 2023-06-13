@@ -32,7 +32,11 @@ function buildUserTableRow(user) {
         row.insertCell(1).textContent = user.username;
         row.insertCell(2).textContent = user.email;
         row.insertCell(3).textContent = user.phone;
-        row.insertCell(4).textContent = user.company.name;
+        let cell5 = document.createElement("td");
+        if (user.company) {
+          cell5.innerText = user.company.name;
+        }
+        row.appendChild(cell5);
         tbody.appendChild(row);
       }
 

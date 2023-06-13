@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Todo</title>
+  </head>
+  <body>
+    <nav>
+        <a href="index.html"><p>Home</p></a>
+        <a href="create.html"><p>Create</p></a>
+        <a href="edit.html"><p>Edit</p></a>
+    </nav>
+    <main>
+        <h1>Edit Todo</h1>
+        <form onsubmit="handleSubmit(event);">
+            <label for="todoId">Todo ID</label>
+            <input type="text" id="todoId" name="todoId">
+          <label for="userId">userId</label>
+          <input type="text" id="userId" Name="userId" />
+  
+          <label for="title">Task</label>
+          <input type="text" id="title" name="title" />
+  
+          <label for="completed">Completed yet?</label>
+          <input type="text" id="completed" name="completed" />
+          <button type="submit">Edit</button>
+        </form>
+      </main>
+  </body>
+  <script>
+       function handleSubmit(event) {
+        event.preventDefault();
+        
+        let todoId = document.querySelector("#todoId")
+        let form = event.target;
+        let formData = new FormData(form);
+        let todo = Object.fromEntries(formData.entries());
+
+        fetch(`http://localhost:3000/todos/${todoId}`, {
+          method: "PUT",
+          headers: { "Content-type": "application/json" },
+          body: JSON.stringify(todo),
+        })
+        .then(function (response) {
+            console.log(response.status, response.statusText);
+            return response.json();
+          })
+          .then(function (todo) {
+            console.log(todo);
+            window.location.replace("index.html");
+          });
+
+       }
