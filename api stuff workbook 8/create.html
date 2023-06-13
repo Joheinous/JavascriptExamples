@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create User</title>
+  </head>
+  <body>
+    <h1>Create User</h1>
+    <form onsubmit="submitNewUser(event);">
+      <label for="Name">Name</label>
+      <input type="text" id="" />
+      <label for="username">Username</label>
+      <input type="text" id="username" />
+      <label for="email">Email</label>
+      <input type="email" id="email" />
+      <label for="phone">Phone</label>
+      <input type="text" id="phone" />
+      <!-- <label for="company-name">Company Name</label>
+      <input type="text" id="company-name" /> -->
+      <button>Submit</button>
+    </form>
+    <p id="confirmationMessage"></p>
+  </body>
+  <script>
+       function submitNewUser(event) {
+        event.preventDefault();
+        
+        let form = event.target;
+        let formData = new FormData(form);
+        // console.log(formData);
+        console.log(Object.fromEntries(formData.entries()));
+
+        fetch("http://localhost:3000/users", {
+            method: "POST",
+            body: JSON.stringify(formData),
+            headers: {"Content-type": "application/json; charset=UTF-8"}
+            })
+            .then((response) => {console.log(response.status, response.statustext); response.json();})
+            .then((user) => {console.log(user); alert("Success!!!") })
+
+       }
+
+
+
+
+    //    let bodyData = { 
+    //         name: document.querySelector("#name").value,
+    //         username: document.querySelector("#username").value,
+    //         email: document.querySelector("#email").value,
+    //         phone: document.querySelector("#phone").value,
+    //         company.name: document.querySelector("#company-name").value,}
+
+    //        fetch("http://localhost:3000/users", {
+    //         method: "POST",
+    //         body: JSON.stringify(bodyData),
+    //         headers: {"Content-type": "application/json; charset=UTF-8"}
+    //         })
+    //         .then((response) => response.json())
+    //         .then((json) => {
+    //             let confirmationMessage = document.getElementById(confirmationMessage);
+    //             confirmationMessage.innerHTML = "New User added";
+    //         })
+    //         .catch((err) => {
+    //             let confirmationMessage = document.getElementById(confirmationMessage);
+    //             confirmationMessage.innerHTML = err;
+    //         })
+  </script>
+</html>

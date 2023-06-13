@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+</head>
+<body>
+    <h1>Users</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Company Name</th>
+            </tr>
+        </thead>
+        <tbody id="users-tbody">
+            
+        </tbody>
+    </table>
+</body>
+<script>
+let tbody = document.querySelector("#users-tbody");
+
+function buildUserTableRow(user) {
+        const row = tbody.insertRow(-1);
+
+        row.insertCell(0).textContent = user.name;
+        row.insertCell(1).textContent = user.username;
+        row.insertCell(2).textContent = user.email;
+        row.insertCell(3).textContent = user.phone;
+        row.insertCell(4).textContent = user.company.name;
+        tbody.appendChild(row);
+      }
+
+function fetchUsers() {
+    fetch("http://localhost:3000/users")
+    .then((response) => response.json())
+    .then((users) => users.forEach(buildUserTableRow));
+}
+fetchUsers();
+</script>
+</html>
